@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8382251372588325801}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6.9129996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7227312159867083623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: quiz, Assembly-CSharp
+        m_MethodName: OnAnswerButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9022578678007724387
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,8 +200,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: select 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 35242f108e3c4824fbe1637c85d8577d, type: 2}
-  m_sharedMaterial: {fileID: 2611744441737111237, guid: 35242f108e3c4824fbe1637c85d8577d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10428dba93ed07f45bde85ef10fa3755, type: 2}
+  m_sharedMaterial: {fileID: -4809418938824310384, guid: 10428dba93ed07f45bde85ef10fa3755, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

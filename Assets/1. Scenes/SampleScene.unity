@@ -400,6 +400,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161826483}
   m_CullTransparentMesh: 1
+--- !u!1 &279633826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+  m_PrefabInstance: {fileID: 1355614038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &316837852
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +700,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152589571}
     m_Modifications:
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1413033449}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -915,16 +932,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152589571}
     m_Modifications:
-    - target: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-      propertyPath: m_fontAsset
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: 10428dba93ed07f45bde85ef10fa3755, type: 2}
-    - target: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -4809418938824310384, guid: 10428dba93ed07f45bde85ef10fa3755, type: 2}
-    - target: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-      propertyPath: m_hasFontAssetChanged
+      objectReference: {fileID: 1413033449}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4912144422185965921, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
@@ -1124,6 +1141,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1251444589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+  m_PrefabInstance: {fileID: 1792297625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1340679275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+  m_PrefabInstance: {fileID: 546599205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1355614038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1132,6 +1159,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152589571}
     m_Modifications:
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1413033449}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAnswerButtonClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1361,6 +1396,18 @@ MonoBehaviour:
   - {fileID: 585373922}
   - {fileID: 768340488}
   - {fileID: 1773862938}
+  correctAnswerSprite: {fileID: -4659264650518790821, guid: a0ad16c789479f544a4f83dcae800e3b, type: 3}
+  defaultAnswerSprite: {fileID: -2421234149185767044, guid: 322adf9c02442e04eb5574cb75b65325, type: 3}
+  answerButtons:
+  - {fileID: 1610438729}
+  - {fileID: 1340679275}
+  - {fileID: 279633826}
+  - {fileID: 1251444589}
+--- !u!1 &1610438729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+  m_PrefabInstance: {fileID: 795473691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1640496371 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
@@ -1391,6 +1438,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 152589571}
     m_Modifications:
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1413033449}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178633672025838160, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
       propertyPath: m_fontAsset
       value: 
