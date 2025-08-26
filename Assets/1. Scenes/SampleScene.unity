@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227312159867083623, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2421234149185767044, guid: 322adf9c02442e04eb5574cb75b65325, type: 3}
     - target: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
       propertyPath: m_Name
       value: AnswerButton (1)
@@ -818,17 +822,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4912144422185965921, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
   m_PrefabInstance: {fileID: 546599205}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &585373922 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-  m_PrefabInstance: {fileID: 546599205}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,17 +906,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &768340488 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-  m_PrefabInstance: {fileID: 1355614038}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &795473691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1391,11 +1373,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionText: {fileID: 2081479516}
   question: {fileID: 11400000, guid: c70996e6066ac8f4780b347fb79a41e8, type: 2}
-  answerTexts:
-  - {fileID: 1640496371}
-  - {fileID: 585373922}
-  - {fileID: 768340488}
-  - {fileID: 1773862938}
   correctAnswerSprite: {fileID: -4659264650518790821, guid: a0ad16c789479f544a4f83dcae800e3b, type: 3}
   defaultAnswerSprite: {fileID: -2421234149185767044, guid: 322adf9c02442e04eb5574cb75b65325, type: 3}
   answerButtons:
@@ -1408,28 +1385,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
   m_PrefabInstance: {fileID: 795473691}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1640496371 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-  m_PrefabInstance: {fileID: 795473691}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1773862938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3083933298609958136, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
-  m_PrefabInstance: {fileID: 1792297625}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1792297625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1542,6 +1497,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227312159867083623, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2421234149185767044, guid: 322adf9c02442e04eb5574cb75b65325, type: 3}
     - target: {fileID: 8382251372588325801, guid: d15fdff514dce2f468635aa6078721ce, type: 3}
       propertyPath: m_Name
       value: AnswerButton (3)
