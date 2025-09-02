@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "4\uBC88\uBB38\uC81C"
   answers:
-  - 
-  - 
-  - 
-  - 
+  - 3
+  - 4
+  - "\uBCF4"
+  - "\uAE30"
   correctAnswerIndex: 0
