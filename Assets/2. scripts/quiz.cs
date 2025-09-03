@@ -22,15 +22,22 @@ public class quiz : MonoBehaviour
     [SerializeField] Sprite solutionTimerSprite;
     [SerializeField] Sprite problemTimerSprite;
     Timer timer;
+    bool chooseAnswer = false;
 
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
     scoreKeeper scoreKeeper;
-    bool chooseAnswer = false;
+
+    [Header("prograssbar")]
+    [SerializeField] Slider slider;
+    public bool isComplete;
     void Start()
     {
         timer = FindFirstObjectByType<Timer>();
         scoreKeeper = FindFirstObjectByType<scoreKeeper>();
+        slider.maxValue = questions.Count;
+        slider.value = 0;
+
         GetNextQustion();
     }
 
@@ -64,12 +71,13 @@ public class quiz : MonoBehaviour
             Debug.Log("No more questions");
             return;
         }
-            chooseAnswer = false;
-            SetButtonState(true);
-            SetDefultButtonSprite();
-            GetRendomQuestion();
-            OndisplayQuestion();
-            scoreKeeper.IncrementQuestionSeen();
+        chooseAnswer = false;
+        SetButtonState(true);
+        SetDefultButtonSprite();
+        GetRendomQuestion();
+        OndisplayQuestion();
+        scoreKeeper.IncrementQuestionSeen();
+        slider.value++;
     }
 
     private void GetRendomQuestion()
@@ -96,6 +104,8 @@ public class quiz : MonoBehaviour
         DisplaySolution(index);
         timer.CancelTimer();
         scoreText.text = "Score: " + scoreKeeper.calculateScore() + "%";
+
+        
     }
 
     private void DisplaySolution(int index)
