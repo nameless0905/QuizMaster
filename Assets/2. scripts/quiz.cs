@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static chatGPTclient;
 
 public class quiz : MonoBehaviour
 {
@@ -31,14 +32,58 @@ public class quiz : MonoBehaviour
     [Header("prograssbar")]
     [SerializeField] Slider slider;
     public bool isComplete;
+
+    [Header("ChatGPT")]
+    [SerializeField] chatGPTclient chatGPTclient;
+    [SerializeField] int questionsCount = 3;
+    bool isGenerating = false;
+
+    bool isGenerateQuestion = false;
+
     void Start()
     {
         timer = FindFirstObjectByType<Timer>();
         scoreKeeper = FindFirstObjectByType<scoreKeeper>();
+        chatGPTclient.QuizGenerateHandler += QuizGeneratedHandler;
+
+        if (questions.Count == 0)
+        {
+            GenerateionsifNeeded();
+        }
+        else
+        {
+            initiallizeslider();
+        }
+    }
+
+    private void GenerateionsifNeeded()
+    {
+        if (isGenerateQuestion) return;
+        
+        isGenerateQuestion = true;
+        GameManeger.instance.ShowLoadingSceen();
+
+        string topicToUse = GetTrendingtopic();
+        chatGPTclient.GeneratedQuestoins(questionsCount, topicToUse);
+    }
+
+    private string GetTrendingtopic()
+    {
+        string[] topics = { "과학", "역사", "음악", "영화", "스포츠", "기술", "문학", "예술", "지리", "정치" };
+        int randomindex = UnityEngine.Random.Range(0, topics.Length);
+        return topics[randomindex];
+    }
+
+    void QuizGeneratedHandler(List<questionSO> questions)
+    {
+        Debug.Log($"quizGeneratedHandler : {questions.Count} questions received");
+        isGenerateQuestion = false;
+    }
+    private void initiallizeslider()
+    {
         slider.maxValue = questions.Count;
         slider.value = 0;
 
-        GetNextQustion();
     }
 
     private void Update()
@@ -55,8 +100,16 @@ public class quiz : MonoBehaviour
 
         if (timer.loadNextQuestion)
         {
-            timer.loadNextQuestion = false;
-            GetNextQustion();
+            if (questions.Count <= 0)
+            {
+                GenerateionsifNeeded();
+                //GameManeger.instance.ShowendSceen();
+            }
+            else
+            {
+                timer.loadNextQuestion = false;
+                GetNextQustion();
+            }
         }
 
         if (!timer.isProblemtime && !chooseAnswer)
@@ -71,6 +124,7 @@ public class quiz : MonoBehaviour
             Debug.Log("No more questions");
             return;
         }
+        GameManeger.instance.ShowQuizSceen();
         chooseAnswer = false;
         SetButtonState(true);
         SetDefultButtonSprite();

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float problemTime = 10f;
-    [SerializeField] float solutionTime = 5f;
+    [SerializeField] float problemTime = 5;
+    [SerializeField] float solutionTime = 3f;
     [SerializeField] GameObject TimerImage;
-    float Timelimit = 10f;
+    float Timelimit = 5;
     float time = 0f;
     [HideInInspector] public bool isProblemtime = true;
     [SerializeField] public bool loadNextQuestion;
@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         time = problemTime;
+        Timelimit = problemTime;
+        loadNextQuestion = true;
     }
     private void Update()
     {
