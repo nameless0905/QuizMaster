@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
-using static chatGPTclient;
+using static ChatGPTClient;
 
 public class quiz : MonoBehaviour
 {
     [Header("질문")]
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] List<questionSO> questions = new List<questionSO>();
+    [SerializeField] TextMeshProUGUI hint;
     questionSO currentquestion;
 
     [Header("버튼 색")]
@@ -34,8 +36,9 @@ public class quiz : MonoBehaviour
     public bool isComplete;
 
     [Header("ChatGPT")]
-    [SerializeField] chatGPTclient chatGPTclient;
+    [SerializeField] ChatGPTClient chatGPTclient;
     [SerializeField] int questionsCount = 3;
+    [SerializeField] TextMeshProUGUI loadingtext;
     bool isGenerating = false;
 
     bool isGenerateQuestion = false;
@@ -44,7 +47,7 @@ public class quiz : MonoBehaviour
     {
         timer = FindFirstObjectByType<Timer>();
         scoreKeeper = FindFirstObjectByType<scoreKeeper>();
-        chatGPTclient.QuizGenerateHandler += QuizGeneratedHandler;
+        chatGPTclient.quizGenerateHandler += QuizGeneratedHandler;
 
         if (questions.Count == 0)
         {
@@ -55,7 +58,7 @@ public class quiz : MonoBehaviour
             initiallizeslider();
         }
     }
-
+    
     private void GenerateionsifNeeded()
     {
         if (isGenerateQuestion) return;
@@ -64,7 +67,7 @@ public class quiz : MonoBehaviour
         GameManeger.instance.ShowLoadingSceen();
 
         string topicToUse = GetTrendingtopic();
-        chatGPTclient.GeneratedQuestoins(questionsCount, topicToUse);
+        chatGPTclient.GenerateQuizQuestions(questionsCount, topicToUse);
     }
 
     private string GetTrendingtopic()
@@ -74,10 +77,20 @@ public class quiz : MonoBehaviour
         return topics[randomindex];
     }
 
-    void QuizGeneratedHandler(List<questionSO> questions)
+    void QuizGeneratedHandler(List<questionSO> Generatedquestions)
     {
-        Debug.Log($"quizGeneratedHandler : {questions.Count} questions received");
+        Debug.Log($"quizGeneratedHandler : {Generatedquestions.Count} questions received");
         isGenerateQuestion = false;
+        if(Generatedquestions == null || Generatedquestions.Count == 0)
+        {
+            Debug.LogError("No questions generated. Please try again.");
+            loadingtext.text = "question Loding Failed";
+        }
+
+        questions.AddRange(Generatedquestions);
+        slider.maxValue += Generatedquestions.Count;
+
+        GetNextQustion();
     }
     private void initiallizeslider()
     {
@@ -107,7 +120,7 @@ public class quiz : MonoBehaviour
             }
             else
             {
-                timer.loadNextQuestion = false;
+                //timer.loadNextQuestion = false;
                 GetNextQustion();
             }
         }
@@ -124,6 +137,9 @@ public class quiz : MonoBehaviour
             Debug.Log("No more questions");
             return;
         }
+
+        timer.loadNextQuestion = false;
+
         GameManeger.instance.ShowQuizSceen();
         chooseAnswer = false;
         SetButtonState(true);
@@ -145,6 +161,7 @@ public class quiz : MonoBehaviour
     {
         Debug.Log(currentquestion.GetQuestion());
         questionText.text = currentquestion.GetQuestion();
+        hint.text = "Hint: " + currentquestion.GetHint();
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
