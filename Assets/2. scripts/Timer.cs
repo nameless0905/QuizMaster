@@ -1,14 +1,20 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float problemTime = 5;
-    [SerializeField] float solutionTime = 3f;
+    [SerializeField] public float problemTime = 5;
+    [SerializeField] public float solutionTime = 3f;
     [SerializeField] GameObject TimerImage;
     float Timelimit = 5;
-    float time = 0f;
+    public float time = 0f;
+    string time_Srting;
+    float time_copy;
     [HideInInspector] public bool isProblemtime = true;
     [SerializeField] public bool loadNextQuestion;
+    [SerializeField] TextMeshProUGUI timerText;
 
     private void Start()
     {
@@ -18,6 +24,9 @@ public class Timer : MonoBehaviour
     }
     private void Update()
     {
+        time_copy = (float)Math.Round(time, 1);
+        time_Srting = time_copy.ToString();
+        timerText.text = time_Srting;
         time -= Time.deltaTime;
         if (time <= 0f)
         {
@@ -36,6 +45,7 @@ public class Timer : MonoBehaviour
             }
         }
         TimerImage.GetComponent<UnityEngine.UI.Image>().fillAmount = time / Timelimit;
+        TimerImage.GetComponent<UnityEngine.UI.Image>().color = Color.Lerp(Color.red, Color.white, time / Timelimit);
     }
     public void CancelTimer()
     {

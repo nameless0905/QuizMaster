@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [Serializable]
+
+
 public class ChatGPTRequest
 {
     public string model = "gpt-4.1-nano";
@@ -51,12 +53,42 @@ public class QuizQuestion
 public class ChatGPTClient : MonoBehaviour
 {
     private const string API_URL = "https://api.openai.com/v1/chat/completions";
-    private string apiKey = "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";
+    private string apiKey;
 
     public delegate void QuizGenerateHandler(List<questionSO> questions);
     public event QuizGenerateHandler quizGenerateHandler;
 
-    public void GenerateQuizQuestions(int count = 3, string topic = "일반상식")
+    private void Awake()
+    {
+        apiKey = LoadFromResources();
+    }
+
+    private string LoadFromResources()
+    {
+        try
+        {
+            TextAsset configFile = Resources.Load<TextAsset>("config");
+            if (configFile != null)
+            {
+                string[] lines = configFile.text.Split('\n');
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("OPENAI_API_KEY="))
+                    {
+                        return line.Substring("OPENAI_API_KEY=".Length).Trim();
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Resources 설정 파일 로드 실패: {e.Message}");
+        }
+
+        return "";
+    }
+
+    public void GenerateQuizQuestions(int count = 10, string topic = "일반상식")
     {
         StartCoroutine(RequestQuizQuestions(count, topic));
     }
@@ -191,4 +223,6 @@ public class ChatGPTClient : MonoBehaviour
         PlayerPrefs.SetString("OpenAI_API_Key", key);
         PlayerPrefs.Save();
     }
+
+    
 }
